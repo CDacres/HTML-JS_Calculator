@@ -39,18 +39,30 @@ document.addEventListener('DOMContentLoaded', function (event) {
 			if (calculation === '+') {
 		    	var answer = num1 + num2;
 				display[0].value = answer;
+				operatorPressed = false;
 			} else if (calculation === '-') {
 				var answer = num1 - num2;
 				display[0].value = answer;
+				operatorPressed = false;
 			} else if (calculation === 'x') {
 				var answer = num1 * num2;
 				display[0].value = answer;
+				operatorPressed = false;
 			} else {
 				var answer = num1 / num2;
 				display[0].value = answer;
+				operatorPressed = false;
 			}
 		}
-
 	});
+
+	var clearButton = document.getElementsByClassName('clear');
+	clearButton[0].addEventListener('click', function (event) {
+		display[0].value ='';
+		num1 = undefined;
+		num2 = undefined;
+		calculation = undefined;
+		operatorPressed = false;
+	});	
 
 });
